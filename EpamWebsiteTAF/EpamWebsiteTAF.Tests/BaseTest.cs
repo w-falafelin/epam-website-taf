@@ -29,8 +29,7 @@ namespace EpamWebsiteTAF.Tests
 
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                
-               var screenshotPath = ScreenshotHelper.TakeScreenshot(DriverManager.WebDriver, testName);
+                var screenshotPath = ScreenshotHelper.TakeScreenshot(DriverManager.WebDriver, testName);
                 LogManager.LogError($"Test '{testName}' failed. Screenshot saved at{screenshotPath}.");
             }
 

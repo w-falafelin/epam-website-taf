@@ -1,5 +1,4 @@
 ﻿using EpamWebsiteTAF.Core;
-using EpamWebsiteTAF.Core.Logger;
 using EpamWebsiteTAF.Core.Utilities;
 using EpamWebsiteTAF.Interaction.Actions;
 

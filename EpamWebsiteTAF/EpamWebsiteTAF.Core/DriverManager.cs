@@ -1,9 +1,5 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EpamWebsiteTAF.Core.Logger;
+using OpenQA.Selenium;
 
 namespace EpamWebsiteTAF.Core
 {
@@ -16,7 +12,8 @@ namespace EpamWebsiteTAF.Core
             {
                 if (webDriver == null)
                 {
-                    throw new InvalidOperationException("WebDriver is not initialized. Call InitializeDriver() first.");
+                    LogManager.LogError("WebDriver is not initialized. Call InitializeDriver() first.");
+                    throw new InvalidOperationException("WebDriver is not initialized.");
                 }
                 return webDriver;
             }

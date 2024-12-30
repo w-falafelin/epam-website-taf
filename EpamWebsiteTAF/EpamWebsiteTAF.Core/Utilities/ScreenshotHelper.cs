@@ -22,11 +22,13 @@ namespace EpamWebsiteTAF.Core.Utilities
                 var filePath = Path.Combine(screenshotsDirectory, fileName);
 
                 screenshot.SaveAsFile(filePath);
+                LogManager.LogInfo($"Screenshot saved at: {filePath}");
 
                 return filePath;
             }
             catch (Exception ex)
             {
+                LogManager.LogError($"Failed to take screenshot: {ex.Message}");
                 Console.WriteLine($"Failed to take screenshot: {ex.Message}");
 
                 return string.Empty;
