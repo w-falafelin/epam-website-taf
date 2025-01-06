@@ -42,5 +42,11 @@ namespace EpamWebsiteTAF.Interaction.Pages
             var locator = LinkLocator(text);
             FindElement(locator).Click();
         }
+
+        public void MouseHoverOnLinkByItsText(string text)
+        {
+            var locator = LinkLocator(text);
+            MoveToElement(locator);
+        }
     }
 }
