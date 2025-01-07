@@ -10,7 +10,7 @@ namespace EpamWebsiteTAF.Core.Utilities
             try
             {
                 var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-                var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                var timestamp = DateTime.Now.ToString("yyyyMMdd-HHmmss");
                 var screenshotsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Screenshots");
 
                 if (!Directory.Exists(screenshotsDirectory))
@@ -18,7 +18,7 @@ namespace EpamWebsiteTAF.Core.Utilities
                     Directory.CreateDirectory(screenshotsDirectory);
                 }
 
-                var fileName = $"{testName}_{timestamp}.png";
+                var fileName = $"{testName}-{timestamp}.png";
                 var filePath = Path.Combine(screenshotsDirectory, fileName);
 
                 screenshot.SaveAsFile(filePath);
