@@ -13,8 +13,14 @@ namespace EpamWebsiteTAF.Interaction.Actions
         }
 
         public void ClickCareersLink() => homePage.ClickLinkByItsText("Careers");
+
         public void ClickAboutLink() => homePage.ClickLinkByItsText("About");
+
         public void ClickIsightsLink() => homePage.ClickLinkByItsText("Insights");
+
+        public void ClickLinkByText(string text) => homePage.ClickLinkByItsText(text);
+
+        public void HoverOverServicesLink() => homePage.MouseHoverOnLinkByItsText("Services");
 
         public void EnterQueryAndPerformSearch(string query)
         {

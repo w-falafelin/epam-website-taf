@@ -19,6 +19,8 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="SpecFlow" Version="3.9.74" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,9 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="Hooks\" />
-    <Folder Include="StepDefinitions\" />
+	  <Folder Include="Hooks\" />
+	  <Folder Include="Features"/>
+	  <Folder Include="Steps\" />
   </ItemGroup>
 
 </Project>

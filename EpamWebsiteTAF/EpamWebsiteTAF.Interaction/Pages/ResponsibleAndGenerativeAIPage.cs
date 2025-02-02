@@ -2,11 +2,11 @@
 
 namespace EpamWebsiteTAF.Interaction.Pages
 {
-    public class ResponsibleAIPage : BasePage
+    public class ResponsibleAndGenerativeAIPage : BasePage
     {
         private readonly By ourRelatedExpertiseSection = By.XPath("//span[contains(text(), 'Our Related Expertise')]/ancestor::div[@class='section']");
 
-        public ResponsibleAIPage(IWebDriver driver) : base(driver) { }
+        public ResponsibleAndGenerativeAIPage(IWebDriver driver) : base(driver) { }
 
         public bool IsPageTitleCorrect(string expectedTitle)
         {
