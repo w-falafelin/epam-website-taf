@@ -1,0 +1,61 @@
+name: EPAM Website Test Automation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  schedule:
+    - cron: '0 2 * * *'
+
+  workflow_dispatch:
+    inputs:
+      run-description:
+        type: string
+        description: Optional run description
+        required: false
+  
+jobs:
+  test-execution:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+      
+      - name: Restore Dependencies
+        run: dotnet restore
+      
+      - name: Build Project
+        run: dotnet build --no-restore
+      
+      - name: Run Full Test Suite
+        run: |
+          # Add any additional environment setup or logging if needed
+          dotnet test --logger "trx;LogFileName=test-results.trx"
+      
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ github.run_id }}
+          path: |
+            **/TestResults/test-results.trx
+            TestResults/
+            screenshots/
+          retention-days: 5
+      
+      - name: Upload Failure Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: failure-screenshots-${{ github.run_id }}
+          path: screenshots/
+          retention-days: 5
